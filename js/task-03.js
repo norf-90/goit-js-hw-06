@@ -12,12 +12,14 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
-let markup = '';
+
 const galeryEl = document.querySelector('.gallery');
 
-images.forEach(({ url, alt }) => {
-  markup += `<li><img src="${url}" alt="${alt}" width='200px'></li>`;
-});
+const markup = images
+  .map(({ url, alt }) => {
+    return `<li><img src="${url}" alt="${alt}" width='200px'></li>`;
+  })
+  .join('');
 
 galeryEl.insertAdjacentHTML('afterbegin', markup);
 
